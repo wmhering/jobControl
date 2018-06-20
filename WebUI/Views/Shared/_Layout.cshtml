@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Job Control</title>  
+    <environment include="Development">
+      <link rel="stylesheet" href="~/styles/materialize.css">
+      <link rel="stylesheet" href="~/styles/site.css" />
+    </environment>
+    <environment exclude="Development">
+      <link rel="stylesheet" href="~/styles/materialize.min.css" />
+      <link rel="stylesheet" href="~/styles/site.min.css" asp-append-version="true" />
+    </environment>
+  </head>
+  <body>
+    <header>
+      <div class="header-menu"></div>
+      <div class="header-main">
+        <h1 class="">Job Control - @ViewData["Title"]</h1>
+        <h2 class="">Company Name</h2>
+      </div>
+    </header>
+    @await Html.PartialAsync("_Menu")
+    <main>
+      @RenderBody()
+    </main>
+    <footer>
+      <hr />
+      <span class="right-align"><a href="~/html/license.html">License</a></span> 
+    </footer>
+    <environment include="Development">
+      <script src="~/scripts/materialize.js"></script>
+      <script src="~/scripts/site.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+      <script src="~/scripts/materialize.min.js"></script>
+      <script src="~/scripts/site.min.js" asp-append-version="true"></script>
+    </environment>
+    @RenderSection("Scripts", required: false)
+  </body>
+</html>

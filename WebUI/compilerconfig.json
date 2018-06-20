@@ -1,0 +1,8 @@
+﻿[
+  {
+    "inputFile": "libraries/materialize/sass/materialize.scss",
+    "outputFile": "wwwroot/styles/materialize.css",
+    "includeInProject": false,
+    "sourceMap": true
+  }
+]

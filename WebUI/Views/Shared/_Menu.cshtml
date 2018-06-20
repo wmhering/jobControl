@@ -1,0 +1,10 @@
+﻿
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using JobControl.WebUI.Extensions;
+
+@Html.BeginMenu("menu")
+  @Html.MenuItem("Jobs", "Jobs", "Get")
+  @Html.MenuItem("Configuration", "Configuration", "Get")
+@Html.EndMenu()

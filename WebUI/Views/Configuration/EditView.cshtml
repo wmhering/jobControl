@@ -1,0 +1,66 @@
+﻿@model ConfigurationEditor;
+@{
+    ViewData["Title"] = "Edit Configuration";
+}
+
+<h2>@ViewData["Title"]</h2>
+<div id="vw">
+    <div class="row">
+        <div class="col x3 l3 m3">
+            <label for="smptServer">SMPT Server:</label>
+            <input name="smtpServer" type="text" :value="smtpHost" />
+        </div>
+        <div class="col x3 l3 m3">
+            <label for="smtpPort">SMTP Port:</label>
+            <input name="smtpPort" type="number" :value="smtpPort" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col x6 l6 m12">
+            <label for="workingFolderPathRoot">Working Folder Root:</label>
+            <input type="text" name="workingFolderPathRoot" :value="workingFolderPathRoot" />
+        </div>
+        <div class="col x6 l6 m12">
+            <label for="archiveFolderPathRoot">Working Folder Root:</label>
+            <input type="text" name="archiveFolderPathRoot" :value="archiveFolderPathRoot" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col x4 l4 m8">
+            <label for="senderEMailAddress">Sender E-Mail Address:</label>
+            <input type="text" name="senderEMailAddress" :value="senderEMailAddress" />
+        </div>
+        <div class="col x4 l4 m8">
+            <label>Failure E-Mail Addresses:</label>
+            <ul>
+                <li v-for="item in failureEMailAddresses">
+                    <input type="email" :value="item.emailAddress" />
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="right">
+        <input type="button" value="Save" />
+    </div>
+</div>
+
+@section Scripts {
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script type="text/javascript">
+    var vm = new Vue({
+        el: '#vw',
+        data: {
+            smtpHost: 'mailserver',
+            smtpPort: 25,
+            senderEMailAddress: 'jobserver@mycompany.com',
+            failureEMailAddresses: [
+                { emailAddress: 'name1@mycompany.com' },
+                { emailAddress: 'name2@mycompany.com' },
+                { emailAddress: 'name3@mycompany.com' }
+            ],
+            workingFolderPathRoot: '\\\\jobserver\\production\\working',
+            archiveFolderPathRoot: '\\\\jobserver\\productiob\\archive'
+        }
+    });
+</script>
+}
